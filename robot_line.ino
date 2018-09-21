@@ -5,7 +5,7 @@ int s3 = 4; //Sensor3 ==> Pin4
 int s4 = 5; //Sensor4 ==> Pin5
 boolean sens1, sens2, sens3, sens4; // Variables for Sensor
 
-
+/*
 // Motor & L298
 //Channel A
 int IN1 = 7; // IN1 ==> Pin7
@@ -19,6 +19,16 @@ int ENB = 11; // Enable B ==> Pin11
 
 int MotorSpeedA = 0;
 int MotorSpeedB = 0;
+*/
+
+//Channel A
+int IN1 = 9; // IN1 ==> Pin7
+int IN2 = 10; // IN2 ==> Pin8
+
+//Channel B
+int IN3 = 11; // IN3 ==> 13
+int IN4 = 13; // IN4 ==> 12
+
 
 void setup() {
   //Activate Serial Monitor
@@ -29,18 +39,15 @@ void setup() {
   pinMode(s2, INPUT);
   pinMode(s3, INPUT);
   pinMode(s4, INPUT);
-
+/*
   //L298 Setting
   //Channel A  Motor in Right Side
   pinMode(IN1, OUTPUT);
   pinMode(IN2, OUTPUT);
-  pinMode(ENA, OUTPUT);
-  digitalWrite(ENA, LOW);
   //Channel B  Motor in Left Side
   pinMode(IN3, OUTPUT);
   pinMode(IN4, OUTPUT);
-  pinMode(ENB, OUTPUT);
-  digitalWrite(ENA, LOW);
+  */
 
 }
 
@@ -144,7 +151,15 @@ void SensorPrint() {
 
 //Function for Moving Forward
 void MoveForward() {
-
+  MotorSpeedA = 200;
+  MotorSpeedB = 200;
+  
+  analogWrite(IN1, MotorSpeedA);
+  analogWrite(IN2, 0);
+  
+  analogWrite(IN3, MotorSpeedB);
+  analogWrite(IN4, 0);
+/*
   MotorSpeedA = 200;
   MotorSpeedB = 200;
   digitalWrite(IN1, HIGH);
@@ -155,10 +170,19 @@ void MoveForward() {
 
   analogWrite(ENA, MotorSpeedA);
   analogWrite(ENB, MotorSpeedB);
+  */
 }
 
 void MoveForward_l() {
-
+  MotorSpeedA = 100;
+  MotorSpeedB = 100;
+  
+  analogWrite(IN1, MotorSpeedA);
+  analogWrite(IN2, 0);
+  
+  analogWrite(IN3, MotorSpeedB);
+  analogWrite(IN4, 0);
+/*
   MotorSpeedA = 100;
   MotorSpeedB = 100;
   digitalWrite(IN1, HIGH);
@@ -169,10 +193,21 @@ void MoveForward_l() {
 
   analogWrite(ENA, MotorSpeedA);
   analogWrite(ENB, MotorSpeedB);
+  */
 }
 
 //function for Moving BackWard
 void MoveBackWard() {
+  MotorSpeedA = 200;
+  MotorSpeedB = 200;
+  
+  analogWrite(IN1, 0);
+  analogWrite(IN2, MotorSpeedA);
+  
+  analogWrite(IN3, 0);
+  analogWrite(IN4, MotorSpeedB);
+  
+  /*
   MotorSpeedA =  150;
   MotorSpeedB = 150;
   digitalWrite(IN1, LOW);
@@ -183,11 +218,20 @@ void MoveBackWard() {
 
   analogWrite(ENA, MotorSpeedA);
   analogWrite(ENB, MotorSpeedB);
-
+  */
 }
 
 // Function for Turning Robot to left
 void TurnLeft() {
+  MotorSpeedA = 150;
+  MotorSpeedB = 150;
+  
+  analogWrite(IN1, MotorSpeedA);
+  analogWrite(IN2, 0);
+  
+  analogWrite(IN3, 0);
+  analogWrite(IN4, MotorSpeedB);
+  /*
   digitalWrite(IN1, HIGH);
   digitalWrite(IN2, LOW);
 
@@ -199,10 +243,21 @@ void TurnLeft() {
 
   analogWrite(ENA, MotorSpeedA);
   analogWrite(ENB, MotorSpeedB);
+  */
 }
 
 // Function For Turning Robot to Right
 void TurnRight() {
+  MotorSpeedA = 150;
+  MotorSpeedB = 150;
+  
+  analogWrite(IN1, 0);
+  analogWrite(IN2, MotorSpeedA);
+  
+  analogWrite(IN3, MotorSpeedB);
+  analogWrite(IN4, 0);
+  
+  /*
   digitalWrite(IN1, HIGH);
   digitalWrite(IN2, LOW);
 
@@ -214,10 +269,21 @@ void TurnRight() {
 
   analogWrite(ENA, MotorSpeedA);
   analogWrite(ENB, MotorSpeedB);
+  */
 }
 
 // Function for Turning Robot to left
 void TurnLeft_L() {
+  MotorSpeedA = 200;
+  MotorSpeedB = 150;
+  
+  analogWrite(IN1, MotorSpeedA);
+  analogWrite(IN2, 0);
+  
+  analogWrite(IN3, MotorSpeedB);
+  analogWrite(IN4, 0);
+  
+  /*
   digitalWrite(IN1, HIGH);
   digitalWrite(IN2, LOW);
 
@@ -229,10 +295,21 @@ void TurnLeft_L() {
 
   analogWrite(ENA, MotorSpeedA);
   analogWrite(ENB, MotorSpeedB);
+  */
 }
 
 // Function For Turning Robot to Right
 void TurnRight_L() {
+  MotorSpeedA = 150;
+  MotorSpeedB = 200;
+  
+  analogWrite(IN1, MotorSpeedA);
+  analogWrite(IN2, 0);
+  
+  analogWrite(IN3, MotorSpeedB);
+  analogWrite(IN4, 0);
+  
+  /*
   digitalWrite(IN1, HIGH);
   digitalWrite(IN2, LOW);
 
@@ -244,4 +321,5 @@ void TurnRight_L() {
 
   analogWrite(ENA, MotorSpeedA);
   analogWrite(ENB, MotorSpeedB);
+  */
 }
