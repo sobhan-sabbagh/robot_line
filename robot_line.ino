@@ -1,13 +1,3 @@
-/*
-  introdution to Arduino
-
-  FaraDars Robot Final Codes
-
-  ==> Faradars.Org <==
-  Author: Zahedi
-*/
-
-
 //Sensor
 int s1 = 2; //Sensor1 ==> Pin2
 int s2 = 3; //Sensor2 ==> Pin3
@@ -71,39 +61,47 @@ void loop() {
 
   if ( sens3 && !sens2) {
     TurnRight_L();
+    Serial.println("TurnRight_L");
   }
   else if ( !sens3 && sens2) {
     TurnLeft_L();
+    Serial.println("TurnLeft_L");
   }
   //Robot Turn a little ro Right
   else if ( sens4 && !sens1) {
     TurnRight();
+    Serial.println("TurnRight");
     r = 1;
   }
 
   //Robot Turn a little ro Left
   else if ( !sens4 && sens1 ) {
+    Serial.println("TurnLeft");
     TurnLeft();
     l = 1;
   }
 
   else if ( sens2 && sens3) {
+    Serial.println("MoveForward");
     MoveForward();
   }
 
   else if ( !sens1 && !sens2 && !sens3 && !sens4) {
     MoveForward_l();
+    Serial.println("MoveForward_l");
   }
   
   while ( sens1 && sens2 && sens3 && sens4 && r == 1) {
     TurnRight();
     SensorDigitalRead();
+    Serial.println("while l");
   }
   
   r = 0 ;
    while ( sens1 && sens2 && sens3 && sens4 && l == 1) {
     TurnLeft();
     SensorDigitalRead();
+    Serial.println("while r");
   }
   l = 0 ;
 
