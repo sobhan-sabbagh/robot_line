@@ -111,19 +111,19 @@ void loop() {
     Sharp_right();
     Serial.println("sharp right");
   }
-  while ( sens1 && sens2 && sens3 && !sens4 &&) {
+  while ( sens1 && sens2 && sens3 && !sens4) {
     TurnLeft_b();
     SensorDigitalRead();
     Serial.println("right l");
   }
 
-  while ( !sens1 && sens2 && sens3 && sens4 &&) {
+  if ( !sens1 && sens2 && sens3 && sens4) {
     TurnRight_b();
     SensorDigitalRead();
     Serial.println("right b");
   }
 
-  while ( sens1 && sens2 && sens3 && sens4 && r == 1) {
+  if ( sens1 && sens2 && sens3 && sens4 && r == 1) {
     TurnRight();
     SensorDigitalRead();
     Serial.println("while l");
